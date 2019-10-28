@@ -3,8 +3,8 @@ Contributors: vinoth06, buffercode
 Tags: dashboard, frontend dashboard pages, pages in dashboard, custom pages
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7DHAEMST475BY
 Requires at least: 4.3
-Tested up to: 5.2
-Stable tag: 1.5.1
+Tested up to: 5.2.4
+Stable tag: 1.5.3
 License: GPL V3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -29,6 +29,14 @@ Pages with shortcode will work with the Frontend Dashboard pages
 4. Do save.
 
 == Changelog ==
+= 1.5.3 [28-Oct-2019] =
+
+* Bug fixes
+
+= 1.5.2 [12-Oct-2019] =
+
+* Support Frontend Dashboard 1.5
+
 = v1.5.1 [03-Oct-2018] =
 * Bug fixes
 
@@ -51,7 +59,8 @@ Pages with shortcode will work with the Frontend Dashboard pages
 * Public release
 
 == Upgrade Notice ==
-= v1.5.1 [03-Oct-2018] =
+= 1.5.3 [28-Oct-2019] =
+
 * Bug fixes
 
 == Screenshots ==

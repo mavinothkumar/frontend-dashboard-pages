@@ -51,7 +51,7 @@ function fed_pages_plugin_activation( $network_wide ) {
 //add_action( 'wpmu_new_blog', 'fed_mu_blog_install', 10, 6 );
 
 function fed_common_pages_plugin_activation( $wpdb ) {
-	$fed_menu = $wpdb->prefix . BC_FED_MENU_DB;
+	$fed_menu = $wpdb->prefix . BC_FED_TABLE_MENU;
 	if ( ! $wpdb->get_col_length( $fed_menu, 'menu_key' ) ) {
 		$wpdb->query( "ALTER TABLE $fed_menu ADD menu_value TEXT AFTER extended, ADD menu_key  VARCHAR(255) AFTER extended" );
 	}
