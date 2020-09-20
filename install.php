@@ -17,8 +17,8 @@ function fed_pages_upgrade() {
 
 }
 
-add_action('fed_pages_upgrade_action','fed_pages_upgrade_action_fn',10,2);
-function fed_pages_upgrade_action_fn($new_version, $old_version) {
+add_action( 'fed_pages_upgrade_action', 'fed_pages_upgrade_action_fn', 10, 2 );
+function fed_pages_upgrade_action_fn( $new_version, $old_version ) {
 	global $wpdb;
 	fed_common_pages_plugin_activation( $wpdb );
 }
@@ -26,7 +26,7 @@ function fed_pages_upgrade_action_fn($new_version, $old_version) {
 register_activation_hook( FED_PAGES_PLUGIN, 'fed_pages_plugin_activation' );
 
 function fed_pages_plugin_activation( $network_wide ) {
-	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 	global $wpdb;
 	if ( is_multisite() && $network_wide ) {
 		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
@@ -34,22 +34,20 @@ function fed_pages_plugin_activation( $network_wide ) {
 			fed_common_pages_plugin_activation( $wpdb );
 			restore_current_blog();
 		}
-
 	} else {
 		fed_common_pages_plugin_activation( $wpdb );
 	}
 
 }
 //
-//function fed_mu_blog_install( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
-//	global $wpdb;
-//	switch_to_blog( $blog_id );
-//	fed_common_pages_plugin_activation( $wpdb );
-//	restore_current_blog();
-//}
+// function fed_mu_blog_install( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+// global $wpdb;
+// switch_to_blog( $blog_id );
+// fed_common_pages_plugin_activation( $wpdb );
+// restore_current_blog();
+// }
 //
-//add_action( 'wpmu_new_blog', 'fed_mu_blog_install', 10, 6 );
-
+// add_action( 'wpmu_new_blog', 'fed_mu_blog_install', 10, 6 );
 function fed_common_pages_plugin_activation( $wpdb ) {
 	$fed_menu = $wpdb->prefix . BC_FED_TABLE_MENU;
 	if ( ! $wpdb->get_col_length( $fed_menu, 'menu_key' ) ) {

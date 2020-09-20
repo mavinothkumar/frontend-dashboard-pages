@@ -3,7 +3,7 @@
  * Plugin Name: Frontend Dashboard Pages
  * Plugin URI: https://buffercode.com/plugin/frontend-dashboard-pages
  * Description: Frontend Dashboard Pages is a plugin to show pages inside the Frontend Dashboard menu. The assigning page may contain content, images and even shortcodes
- * Version: 1.5.3
+ * Version: 1.5.5
  * Author: vinoth06
  * Author URI: http://buffercode.com/
  * License: GPLv2
@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $fed_check = get_option( 'fed_plugin_version' );
 
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( $fed_check && is_plugin_active( 'frontend-dashboard/frontend-dashboard.php' ) ) {
 
 	/**
 	 * Version Number
 	 */
-	define( 'FED_PAGES_PLUGIN_VERSION', '1.5.3' );
+	define( 'FED_PAGES_PLUGIN_VERSION', '1.5.5' );
 
 	/**
 	 * App Name
@@ -51,19 +51,18 @@ if ( $fed_check && is_plugin_active( 'frontend-dashboard/frontend-dashboard.php'
 	require_once FED_PAGES_PLUGIN_DIR . '/main_menu/FEDP_MainMenu.php';
 	require_once FED_PAGES_PLUGIN_DIR . '/functions.php';
 } else {
-		function fed_global_admin_notification_pages() {
-			?>
-			<div class="notice notice-warning">
-				<p>
-					<b>
-						<?php _e( 'Please install <a href="https://buffercode.com/plugin/frontend-dashboard">Frontend Dashboard</a> to use this plugin [Frontend Dashboard Pages]', 'frontend-dashboard-pages' );
-						?>
+	function fed_global_admin_notification_pages() {
+		?>
+		<div class="notice notice-warning">
+			<p>
+				<b>
+					<?php
+						_e( 'Please install <a href="https://buffercode.com/plugin/frontend-dashboard">Frontend Dashboard</a> to use this plugin [Frontend Dashboard Pages]', 'frontend-dashboard-pages' );
+					?>
 					</b>
 				</p>
 			</div>
 			<?php
 	}
 	add_action( 'admin_notices', 'fed_global_admin_notification_pages' );
-	?>
-	<?php
 }
