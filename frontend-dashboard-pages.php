@@ -3,7 +3,7 @@
  * Plugin Name: Frontend Dashboard Pages
  * Plugin URI: https://buffercode.com/plugin/frontend-dashboard-pages
  * Description: Frontend Dashboard Pages is a plugin to show pages inside the Frontend Dashboard menu. The assigning page may contain content, images and even shortcodes
- * Version: 1.5.5
+ * Version: 3.0.0
  * Author: vinoth06
  * Author URI: http://buffercode.com/
  * License: GPLv2
@@ -22,7 +22,7 @@ if ( $fed_check && is_plugin_active( 'frontend-dashboard/frontend-dashboard.php'
 	/**
 	 * Version Number
 	 */
-	define( 'FED_PAGES_PLUGIN_VERSION', '1.5.5' );
+	define( 'FED_PAGES_PLUGIN_VERSION', '3.0.0' );
 
 	/**
 	 * App Name
