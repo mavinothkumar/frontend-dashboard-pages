@@ -50,6 +50,37 @@ if ( $fed_check && is_plugin_active( 'frontend-dashboard/frontend-dashboard.php'
 	require_once FED_PAGES_PLUGIN_DIR . '/install.php';
 	require_once FED_PAGES_PLUGIN_DIR . '/main_menu/FEDP_MainMenu.php';
 	require_once FED_PAGES_PLUGIN_DIR . '/functions.php';
+
+	/**
+	 * Deprecation Notice: Frontend Dashboard Pages is now built directly into Frontend Dashboard Core (v3.0.0+).
+	 */
+	function fed_pages_deprecation_admin_notice() {
+		$deactivate_url = wp_nonce_url(
+			admin_url( 'plugins.php?action=deactivate&plugin=' . urlencode( FED_PAGES_PLUGIN_BASENAME ) ),
+			'deactivate-plugin_' . FED_PAGES_PLUGIN_BASENAME
+		);
+		?>
+		<div class="notice notice-info is-dismissible" style="border-left-color: #4f46e5; padding: 12px 16px;">
+			<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+				<div>
+					<p style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #1e293b;">
+						<span class="dashicons dashicons-info" style="color: #4f46e5; margin-right: 4px; vertical-align: middle;"></span>
+						<?php esc_html_e( 'Frontend Dashboard Pages has been integrated into Core!', 'frontend-dashboard-pages' ); ?>
+					</p>
+					<p style="margin: 0; font-size: 12px; color: #475569;">
+						<?php esc_html_e( 'Custom WordPress page mapping and external URLs are now natively supported in Frontend Dashboard (v3.0.0+). You can safely deactivate and remove this add-on without losing any menu configurations.', 'frontend-dashboard-pages' ); ?>
+					</p>
+				</div>
+				<div>
+					<a href="<?php echo esc_url( $deactivate_url ); ?>" class="button button-primary" style="background-color: #4f46e5; border-color: #4338ca; text-shadow: none;">
+						<?php esc_html_e( 'Deactivate Add-on', 'frontend-dashboard-pages' ); ?>
+					</a>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+	add_action( 'admin_notices', 'fed_pages_deprecation_admin_notice' );
 } else {
 	function fed_global_admin_notification_pages() {
 		?>
@@ -66,3 +97,4 @@ if ( $fed_check && is_plugin_active( 'frontend-dashboard/frontend-dashboard.php'
 	}
 	add_action( 'admin_notices', 'fed_global_admin_notification_pages' );
 }
+

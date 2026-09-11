@@ -16,6 +16,11 @@ if ( ! class_exists( 'FEDP_MainMenu' ) ) {
 	class FEDP_MainMenu {
 
 		public function __construct() {
+			if ( function_exists( 'fed_core_override_default_page' ) ) {
+				// Core 3.0+ natively handles page routing and rendering; avoid double execution
+				return;
+			}
+
 			add_action( 'fed_add_main_menu_item_bottom', array( $this, 'fed_pages_add_main_menu_item_bottom' ) );
 			add_action( 'fed_edit_main_menu_item_bottom', array( $this, 'fed_pages_edit_main_menu_item_bottom' ) );
 			add_action( 'fed_enqueue_script_style_admin', array( $this, 'fed_pages_enqueue_script_style_admin' ) );
@@ -33,7 +38,6 @@ if ( ! class_exists( 'FEDP_MainMenu' ) ) {
 
 			add_action( 'wp_ajax_fedp_save_elementor_settings', array( $this, 'save_elementor_settings' ) );
 			add_action( 'wp_ajax_nopriv_fedp_save_elementor_settings', 'fed_block_the_action' );
-
 		}
 
 		public function save_elementor_settings() {

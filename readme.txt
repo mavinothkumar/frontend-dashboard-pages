@@ -1,4 +1,4 @@
-=== Frontend Dashboard Pages===
+=== Frontend Dashboard Pages [DEPRECATED - MERGED INTO CORE] ===
 Contributors: vinoth06, buffercode
 Tags: dashboard, frontend dashboard pages, pages in dashboard, custom pages
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7DHAEMST475BY
@@ -8,27 +8,20 @@ Stable tag: 3.0.0
 License: GPL V3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-Frontend Dashboard Pages is a plugin to show pages inside the Frontend Dashboard menu. The assigning page may contain content, images and even shortcodes
+Frontend Dashboard Pages has been merged into Frontend Dashboard Core (v3.0.0+).
 
 == Description ==
-> #### Notice
-> This is an Add-on plugin of [Frontend Dashboard](https://wordpress.org/plugins/frontend-dashboard/), So please install [Frontend Dashboard](https://buffercode.com/plugin/frontend-dashboard) to use this plugin
+> #### [DEPRECATED] Merged into Core
+> **Notice**: As of Frontend Dashboard v3.0.0, all features provided by this add-on (mapping custom WordPress pages, Elementor/WPBakery rendering, and external URLs) are **built directly into the core Frontend Dashboard plugin**.
+> You can safely deactivate and remove this add-on.
 
-Frontend Dashboard Pages is a plugin to show pages inside the Frontend Dashboard menu. The assigning page may contain content, images and even shortcodes
-
-= Assign Pages =
-Assign pages to the Frontend Dashboard Menu to make the menu act as  page view
-
-= Pages with Shortcode =
-Pages with shortcode will work with the Frontend Dashboard pages
-
-== Installation ==
-1. Upload the “frontend-dashboard-pages” directory to the plugins directory.
-2. Go to the plugins setting page and activate “Frontend Dashboard Pages”
-3. Go to Frontend Dashboard Menu and add pages.
-4. Do save.
+Frontend Dashboard Pages previously allowed showing pages inside Frontend Dashboard menus. This functionality is now natively available under **Frontend Dashboard > Dashboard Menus**.
 
 == Changelog ==
+= 3.0.0 =
+* Deprecation: Merged all functionality directly into Frontend Dashboard Core (v3.0.0+).
+* Added core migration notice and safe deactivation prompt.
+
 = 1.5.5 [11-July-2020] =
 
 * Bug fixes
